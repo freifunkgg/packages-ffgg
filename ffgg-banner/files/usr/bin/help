@@ -1,0 +1,21 @@
+#!/bin/sh
+echo "
+ Befehl					   Beschreibung
+ ------------------------------------------------------------------------------
+ autoupdater				// Firmware-Update anstossen
+ logread				// Syslog-Ausgabe
+ logread -f				// Syslog-Ausgabe fortlaufend
+ ip a s					// Alle IPs anzeigen
+ ip r s t all				// Gesamte Routingtabelle
+ brctl show				// Alle Batman-Bridges anzeigen
+ iwinfo					// WLAN-Paramter anzeigen
+ iwinfo phy0 scan			// WLAN-Umgebung scannen
+ iwinfo mesh0 assoclist			// WLAN-Analyse Mesh, einfach
+ iw dev mesh0 station dump		// WLAN-Analyse Mesh, detailliert 
+ iwinfo client0 assoclist		// WLAN-Analyse Clients, einfach
+ iw dev client0 station dump		// WLAN-Analyse Clients, detailliert
+ nodeinfo				// Diverse Infos zum Knoten
+ meshinfo				// Analyse des Wifi-Meshes
+ 
+ Doku: https://github.com/freifunk-gluon/gluon/wiki/Commandline-administration
+ "
