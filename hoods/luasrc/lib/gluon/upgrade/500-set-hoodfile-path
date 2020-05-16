@@ -1,0 +1,10 @@
+#!/usr/bin/lua
+
+local uci = require('simple-uci').cursor()
+
+local hoodfile = uci:get('hoodselector', 'hoodselector', 'hoodfile')
+
+if not hoodfile:match("/lib/ffgg/hoods/hoods.json") then
+  uci:set('hoodselector', 'hoodselector', 'hoodfile', '/lib/ffgg/hoods/hoods.json')
+  uci:save('hoodselector')
+end

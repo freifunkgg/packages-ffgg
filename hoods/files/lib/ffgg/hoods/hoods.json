@@ -1,0 +1,636 @@
+[
+  {
+    "name": "dom65451",
+    "bssid": "05:20:0A:12:00:45",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20321",
+        "publickey": "3a17771c11479841d7807f261131991c10604a0c552f43e9142f140f8cf17a7d"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20322",
+        "publickey": "d8a45ae17ba11e458b8019e6f4bcc8de263e66f7cba6f8900dca7195e43aa321"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          50.025,
+          8.495
+        ],
+        [
+          50.077,
+          8.554
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64546",
+    "bssid": "05:20:0A:12:00:50",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20361",
+        "publickey": "c855f85e499a6ffbd400a66a3784a6014e92b132e33ae67cbfdff1da7d3c66cf"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20362",
+        "publickey": "8d8e0c13fce16da61646e7d8bc245ae9894ba7b72de0d2dbe209d872197f5e0a"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.956,
+          8.495
+        ],
+        [
+          50.025,
+          8.603
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom65479",
+    "bssid": "05:20:0A:12:00:60",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20441",
+        "publickey": "bd0ef250897cb8a694bf7d343f5418fd2df9c1df5bfe9284789e02ec080df6f5"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20442",
+        "publickey": "10b2b92bc58eb886bd26de7264f3f37a640a4bd605c79f6bd67d0294a76492a5"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          50.002,
+          8.443
+        ],
+        [
+          50.041,
+          8.495
+        ]
+      ],
+      [
+        [
+          50.004,
+          8.436
+        ],
+        [
+          50.013,
+          8.443
+        ]
+      ],
+      [
+        [
+          50.006,
+          8.432
+        ],
+        [
+          50.011,
+          8.436
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom65428",
+    "bssid": "05:20:0A:12:00:70",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20521",
+        "publickey": "98ef8c82e9826122f6bade07f17c5bef6908fcd96d6ade660d4724f8ae092437"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20522",
+        "publickey": "4fde138420511fef1239e6939f4ac2fda359c2e03db9ff16512ff8aa4495d983"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.966,
+          8.372
+        ],
+        [
+          50.002,
+          8.495
+        ]
+      ],
+      [
+        [
+          49.959,
+          8.366
+        ],
+        [
+          49.966,
+          8.465
+        ]
+      ],
+      [
+        [
+          49.956,
+          8.366
+        ],
+        [
+          49.959,
+          8.453
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64572",
+    "bssid": "05:20:0A:12:00:25",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20161",
+        "publickey": "bf56d16832261c338986d920a09e03639484ed948723fe55a5c05f93c7dee483"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20162",
+        "publickey": "867d6cea61467e0e6dd014f6e83a3a4ae049b79f5f08375f9b6769c9b041f390"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.882,
+          8.503
+        ],
+        [
+          49.956,
+          8.551
+        ]
+      ],
+      [
+        [
+          49.921,
+          8.551
+        ],
+        [
+          49.956,
+          8.57
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64521",
+    "bssid": "05:20:0A:12:00:40",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20281",
+        "publickey": "ba445ebbea38cf6806e70a027534b8041884625d704fe468c812d25223b2cf9d"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20282",
+        "publickey": "5c07295b6c1434e414ad1cbc2dd1a420455efd8970c347dd1fe03b1a89328f9c"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.866,
+          8.435
+        ],
+        [
+          49.937,
+          8.503
+        ]
+      ],
+      [
+        [
+          49.937,
+          8.487
+        ],
+        [
+          49.956,
+          8.503
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom65468",
+    "bssid": "05:20:0A:12:00:80",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20561",
+        "publickey": "33696f726a6f1ae9b241ac62fe20c510af51db78ff967c3b2d0137be6ac2252a"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20562",
+        "publickey": "285c2abde32580336097634747a83b58353fbfb6131ae7154ce57215c25712da"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.866,
+          8.342
+        ],
+        [
+          49.956,
+          8.435
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64569",
+    "bssid": "05:20:0A:12:00:55",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20401",
+        "publickey": "0bc1a701a4d95bd0456f527ef73d2e6e73e39c1e475e119c54e2335cbe84b79f"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20402",
+        "publickey": "3b1e2be4917938c5ab7b61d0c28caa0aaaf693888ff3688adf2b3133e1dabcbc"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.937,
+          8.435
+        ],
+        [
+          49.956,
+          8.487
+        ]
+      ],
+      [
+        [
+          49.956,
+          8.453
+        ],
+        [
+          49.959,
+          8.495
+        ]
+      ],
+      [
+        [
+          49.959,
+          8.465
+        ],
+        [
+          49.966,
+          8.495
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64560",
+    "bssid": "05:20:0A:12:00:65",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20481",
+        "publickey": "853db9bd00c8b57c4507992f331b57440ee2a0e18b9d80ab213bf36b2de940ba"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20482",
+        "publickey": "fea46e815a7997043bf7fccd167a887dd36dcfe66787e93cab234af901a2b123"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.819,
+          8.37
+        ],
+        [
+          49.866,
+          8.546
+        ]
+      ],
+      [
+        [
+          49.791,
+          8.485
+        ],
+        [
+          49.819,
+          8.546
+        ]
+      ],
+      [
+        [
+          49.866,
+          8.503
+        ],
+        [
+          49.882,
+          8.546
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64589",
+    "bssid": "05:20:0A:12:00:75",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20561",
+        "publickey": "33696f726a6f1ae9b241ac62fe20c510af51db78ff967c3b2d0137be6ac2252a"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20562",
+        "publickey": "285c2abde32580336097634747a83b58353fbfb6131ae7154ce57215c25712da"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.791,
+          8.411
+        ],
+        [
+          49.819,
+          8.485
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64584",
+    "bssid": "05:20:0A:12:00:15",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20081",
+        "publickey": "8fcae842dc5733c132fbe93dcca4a6ebc64f128db3f5d8299e449a0392643573"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20082",
+        "publickey": "6047553b3ace94e4993d46fb5aedb885c4c9ac086bb15fd2cf2bd441841f416a"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.775,
+          8.411
+        ],
+        [
+          49.791,
+          8.505
+        ]
+      ],
+      [
+        [
+          49.766,
+          8.411
+        ],
+        [
+          49.775,
+          8.482
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom64579",
+    "bssid": "05:20:0A:12:00:30",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20201",
+        "publickey": "159b240c2e3ef96e365e2cad54448c887239d8639d6247f514b6b83ae51fed89"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20202",
+        "publickey": "4c39b10e2ba9da0a7f6d18a65a2250353bc95acdbf2daa4dcf1ce043ead7811d"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.728,
+          8.449
+        ],
+        [
+          49.766,
+          8.546
+        ]
+      ],
+      [
+        [
+          49.775,
+          8.505
+        ],
+        [
+          49.791,
+          8.546
+        ]
+      ],
+      [
+        [
+          49.766,
+          8.482
+        ],
+        [
+          49.775,
+          8.546
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom65474",
+    "bssid": "05:20:0A:12:00:20",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20121",
+        "publickey": "fb318f6368829f3d2bf4e20078d64985e03def394bfdded5f9351d834a934368"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20122",
+        "publickey": "e5bf6b19fa513356ef42965c3af06d264fbd3fabac83f53cc46d1426db9b15cf"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.98,
+          8.343
+        ],
+        [
+          50.002,
+          8.372
+        ]
+      ],
+      [
+        [
+          49.976,
+          8.351
+        ],
+        [
+          49.98,
+          8.372
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "dom65462",
+    "bssid": "05:20:0A:12:00:35",
+    "defaulthood": false,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20241",
+        "publickey": "9086d235bc761a1813099c3a9d4d6cb6167e83b9e22fea40e9d1018f34a7812e"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20242",
+        "publickey": "bdaa59f11b17766a7559ec12dd934be9317d1dc694b44c425a555c9fa3fe826f"
+      }
+    ],
+    "boxes": [
+      [
+        [
+          49.98,
+          8.295
+        ],
+        [
+          50.002,
+          8.343
+        ]
+      ],
+      [
+        [
+          49.956,
+          8.333
+        ],
+        [
+          49.98,
+          8.351
+        ]
+      ],
+      [
+        [
+          49.967,
+          8.317
+        ],
+        [
+          49.98,
+          8.333
+        ]
+      ],
+      [
+        [
+          49.956,
+          8.351
+        ],
+        [
+          49.966,
+          8.366
+        ]
+      ],
+      [
+        [
+          49.966,
+          8.351
+        ],
+        [
+          49.976,
+          8.372
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "global",
+    "bssid": "05:20:0A:12:00:10",
+    "defaulthood": true,
+    "servers": [
+      {
+        "type": "fastd",
+        "host": "gw1.freifunk-kitzingen.de",
+        "port": "20001",
+        "publickey": "d285a5ce0f14bb132cea202ebeee3050c84ade6ca00e7e94d157711727baf596"
+      },
+      {
+        "type": "fastd",
+        "host": "gw2.freifunk-kitzingen.de",
+        "port": "20002",
+        "publickey": "4f4cb9162c17478fb0b9ced9a981afb8fbf458a1509311d4a7c7e4baec4a7a5e"
+      }
+    ],
+    "boxes": []
+  }
+]
