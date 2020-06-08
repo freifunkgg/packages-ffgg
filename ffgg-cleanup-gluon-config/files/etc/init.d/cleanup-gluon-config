@@ -1,0 +1,168 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+# Wo werden die Buffer-Informationen zwischengespeichert?
+CACHESTOREFILE=/root/cleanup-gluon-config.batch
+CACHESTOREFILE_TMP=/tmp/cleanup-gluon-config.batch
+
+# State-Strings
+WIPE_INIT="Init"
+WIPE_CACHED="WipeThrough"
+WIPE_DONE="WipeCompleted"
+
+WIPE_CONFIG_TYPE="FreshAir"
+
+WipeWriteUci() {
+# Funktion: UCI-Schlüssel lesen und in Cache-Datei speichern
+# Parameter 1: UCI-Quelle
+# Parameter 2: (optional) abweichendes UCI-Ziel (Bsp.: Wifi-Mesh ibss vs. mesh))
+
+VALUE=$(uci -q get $1)
+if [ -n "$2" ]; then
+   UCIPARAMETER=$2
+else
+   UCIPARAMETER=$1
+fi
+if [ -n "$VALUE" ]; then
+  echo set ${UCIPARAMETER}=\'${VALUE}\' >> ${CACHESTOREFILE_TMP}
+fi
+}
+
+
+boot() {
+
+STATE=$(uci -q get cleanup-gluon-config.wipe.state)
+
+#
+# Phase I
+#
+# Kein State gefunden -> dann eine neu CleanUp-Config anlegen.
+# Gefolgt alle wichtigsten UCI-Parameter zwischenspeichern.
+# Dann wird das overlayfs gelöscht und der Zwischenspeicher unter /root/$CACHESTOREFILE abgelegt.
+# Mit einem Reboot wird in Phase II gewechselt.
+
+if [ -z "$STATE" ]; then
+  touch /etc/config/cleanup-gluon-config
+  uci set cleanup-gluon-config.wipe=${WIPE_CONFIG_TYPE}
+  uci set cleanup-gluon-config.wipe.state=${WIPE_INIT}
+  uci commit cleanup-gluon-config
+  # Zur Sicherheit ggf. das Ziel mal löschen (egal ob vorhanden oder nicht).
+  rm -f ${CACHESTOREFILE_TMP}
+
+  # Liste der zu übernehmenden Werte
+
+  # Hostname
+  WipeWriteUci system.@system[0].hostname
+  WipeWriteUci system.@system[0].pretty_hostname
+
+  # Nodeinfo
+  WipeWriteUci gluon-node-info.@owner[0].contact
+  WipeWriteUci gluon-node-info.@location[0].share_location
+  WipeWriteUci gluon-node-info.@location[0].latitude
+  WipeWriteUci gluon-node-info.@location[0].longitude
+  WipeWriteUci gluon-node-info.@location[0].altitude
+
+  # static IPv4 oder DHCP
+  WipeWriteUci network.wan.proto
+  WipeWriteUci network.wan.ipaddr
+  WipeWriteUci network.wan.netmask
+  WipeWriteUci network.wan.gateway
+
+  # static DNS
+  WipeWriteUci gluon-wan-dnsmasq.@static[0].server
+
+  #VPN bandwidth limitation
+  WipeWriteUci gluon.mesh_vpn.limit_egress
+  WipeWriteUci gluon.mesh_vpn.limit_ingress
+  WipeWriteUci gluon.mesh_vpn.limit_enabled
+
+  #VPN
+  WipeWriteUci fastd.mesh_vpn.enabledd
+
+  # MoL / MoW
+  WipeWriteUci network.mesh_wan.disabled
+  WipeWriteUci network.mesh_lan.disabled
+
+  #PoE
+  WipeWriteUci system.gpio_switch_poe_passthrough.value
+
+  #Wifi
+  WipeWriteUci gluon.wireless.outdoor
+  WipeWriteUci gluon-core.@wireless[0].preserve_channels
+  WipeWriteUci wireless.radio0.channel
+  WipeWriteUci wireless.radio1.channel
+  WipeWriteUci wireless.radio0.disabled
+  WipeWriteUci wireless.radio1.disabled
+  WipeWriteUci wireless.client_radio0.disabled
+  WipeWriteUci wireless.client_radio1.disabled
+
+  WipeWriteUci wireless.mesh_radio0.disabled
+  WipeWriteUci wireless.mesh_radio1.disabled
+  WipeWriteUci wireless.wan_radio0.ssid
+  WipeWriteUci wireless.wan_radio1.ssid
+  WipeWriteUci wireless.wan_radio0.key
+  WipeWriteUci wireless.wan_radio1.key
+
+  # Neuen Wipe-State sichern
+  uci set cleanup-gluon-config.wipe.state=${WIPE_CACHED}
+  uci commit cleanup-gluon-config
+
+  # Gefolgt ein kleiner Hack.
+  # Beim  Bootprozess bereitet der Zugriff auf "/tmp" Probleme.
+  # Es liegt wohl an "/etc/rc.common" und "mount -o remount /"
+  # Daher wird ein Hilfsskript unter "/tmp/cleanup"?! erstellt und separat gestartet.
+  cat << EOF > /tmp/cleanup
+#!/bin/sh
+sleep 5
+#cp ${CACHESTOREFILE} ${CACHESTOREFILE_TMP}
+cp -r  /etc/dropbear /tmp
+cp /etc/rc.local /tmp
+cp /etc/config/cleanup-gluon-config /tmp/cleanup-gluon-config
+rm -rf /overlay/upper/*
+mount -o remount /
+cp /tmp/cleanup-gluon-config /etc/config/cleanup-gluon-config
+cp /tmp/rc.local /etc/rc.local
+cp /tmp/dropbear/* /etc/dropbear
+cp ${CACHESTOREFILE_TMP} ${CACHESTOREFILE}
+reboot
+EOF
+  chmod +x /tmp/cleanup
+  /tmp/cleanup &
+
+#
+# Phase II
+#
+# Wiederherstellung der zwischengespeicherten UCI-Werte aus der Cache-Datei.
+elif [ "$STATE" == "$WIPE_CACHED" ]; then
+  uci -f ${CACHESTOREFILE} batch
+  #rm -f ${CACHESTOREFILE}
+
+  # Die Client-LAN-Konfiguration bedarf "immer" der Aufmerksamkeit.
+  # Das hier verwendetetn UCI-Schlüssel gelten für Gluon >=2018.1
+  # Daher das Client-LAN erstmal generell deaktivieren
+  for ifname in $(cat /lib/gluon/core/sysconfig/lan_ifname); do
+    uci -q del_list network.client.ifname=$ifname
+  done
+
+  # Falls MoL deaktiviert ist, dann kann das Client-LAN aktiviert werden.
+  MOL_DISBALED=$(uci -q get network.mesh_lan.disabled)
+  if [ "$MOL_DISBALED" == "1" ]; then
+    for ifname in $(cat /lib/gluon/core/sysconfig/lan_ifname); do
+      uci -q add_list network.client.ifname=$ifname
+    done
+  fi
+
+  # Zur Sicherheit nochmal alles durchkonfigurieren
+  gluon-reconfigure
+
+  # Neuen Wipe-State sichern
+  uci set cleanup-gluon-config.wipe.state=${WIPE_DONE}
+
+  # Alle zurückgespielten Werte sichern
+  uci commit
+
+  reboot
+fi
+}
+
