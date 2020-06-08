@@ -2,7 +2,7 @@
 
 Mit diesem Package werden auf einem Freifunkknoten alte und überflüssige Konfigurations-Artefakte entfernt. 
 
-Hierdurch ist es bei Bestandsknoten sehr einfach möglich, dass ohne frisches Aufsetzen der Knoten z.B. innerhalb einer Community ein Technologie-Wechsel ( z.B. VPN-Protokolls oder Mesh-Protokoll) oder ein Knotenumzug von einer Community zu einer anderen Community durchgeführt werden kann.
+Hierdurch ist es bei Bestandsknoten sehr einfach möglich, dass ohne frisches Aufsetzen der Knoten (z.B. innerhalb einer Community bei einem Technologie-Wechsel - z.B. VPN-Protokolls oder Mesh-Protokoll - oder bei einem Knotenumzug von einer Community zu einer anderen Community) durchgeführt werden kann.
 
 Ein `'sysupgrade -n'` mit einer gefolgten Neukonfiguration im Konfigmodus ist nicht notwendig. 
 
