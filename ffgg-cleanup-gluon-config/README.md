@@ -69,7 +69,12 @@ Wird dieses Package in der `site.mk` eingebunden, dann muss folgender Eintrag in
 ```
 ...
   setup_mode = {
-    skip = true
+    skip = true,
     },
 ...
 ```
+
+---
+
+## ToDo
+Das die Vorgaben der zu sichernden Parameter in die `site.conf` verlagern.
