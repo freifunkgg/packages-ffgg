@@ -2,13 +2,13 @@
 
 Mit diesem Package werden auf einem Freifunkknoten alte und überflüssige Konfigurations-Artefakte entfernt. 
 
-Hierdurch ist es bei Bestandsknoten sehr einfach möglich, dass ohne frisches Aufsetzen der Knoten (z.B. innerhalb einer Community bei einem Technologie-Wechsel - z.B. VPN-Protokolls oder Mesh-Protokoll - oder bei einem Knotenumzug von einer Community zu einer anderen Community) durchgeführt werden kann.
+Hierdurch ist es bei Bestandsknoten sehr einfach möglich, dass komplizierte Upgrades ohne frisches Aufsetzen der Knoten (z.B. innerhalb einer Community bei einem Technologie-Wechsel - z.B. VPN-Protokolls oder Mesh-Protokoll - oder bei einem Knotenumzug von einer Community zu einer anderen Community) durch ein simples Update durchgeführt werden können.
 
 Ein `'sysupgrade -n'` mit einer gefolgten Neukonfiguration im Konfigmodus ist nicht notwendig. 
 
 Prinzipiel sichert das Package die wichtigsten vom User veränderten/angepassten UCI-Parameter, löscht dann das OverlayFS und schreibt die User UCI-Parameter wieder zurück. Nach dieser Prozedur verhält sich der Knoten wie ein frisch konfigurierter Knoten.
 
-Die Prozedur ist mehrphasig. Der Router startet nach einem normalem '`sysupgrade`' bzw. '`autoupgrade`' in Summe 4 mal neu durch (Anmerkung: 5 mal nach einem 'firstboot').  
+Die Prozedur ist mehrphasig. Der Router startet nach einem normalem '`sysupgrade`' bzw. '`autoupgrade`' in Summe 4 mal neu durch (Anmerkung: 5 mal nach einem '`firstboot`').  
 
 Die Prozedur dauert je nach Hardware ca. 5 Minuten (+/-).
 
