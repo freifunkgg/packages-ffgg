@@ -1,4 +1,4 @@
-# clean-gluon-config
+# cleanup-gluon-config
 
 Mit diesem Package werden auf einem Freifunkknoten alte und überflüssige Konfigurations-Artefakte entfernt. 
 
