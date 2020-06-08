@@ -14,9 +14,9 @@ Die Prozedur dauert je nach Hardware ca. 5 Minuten (+/-).
 
 Der generelle und dauerhafte Einsatz dieses Package in einer Community-Firmware ist nicht angedacht. Eine Firmware mit diesem Packages sollte nur als zeitlich beschränkter Übergang zu einer neuen Firmware-Version dienen. Die Verbreitung einer Factory-Firmware mit diesem Packages ist nicht zu empfehlen. 
 
---
+---
 
-###Falls vorhanden, so werden folgende vorherige Konfigurationen übernommen:
+### Falls vorhanden, so werden folgende vorherige Konfigurationen übernommen:
   
   - Die Datei `/etc/rc.local`
   - Die Dropbear-Dateien `authorized_keys` und `dropbear_rsa_host_key`
@@ -59,15 +59,17 @@ Der generelle und dauerhafte Einsatz dieses Package in einer Community-Firmware 
     - wireless.mesh_radio0.disabled
     - wireless.mesh_radio1.disabled
 
---
+---
 
 ## Einbindung in Gluon
 Wird das Package in der Firmware eingebunden, dann muss dafür gesorgt werden, dass der Konfigmodus übersprungen wird. Das Aufspielen einer Factory-Firmware auf einen neuen Router wird daher zu einem mit Default-Werten konfigurierten Router führen. 
 
 Wird dieses Package in der `site.mk` eingebunden, dann muss folgender Eintrag in der `site.conf` vorhanden sein
 
+```
 ...
   setup_mode = {
     skip = true
     },
-...  
+...
+```
