@@ -77,4 +77,4 @@ Wird dieses Package in der `site.mk` eingebunden, dann muss folgender Eintrag in
 ---
 
 ## ToDo
-Das die Vorgaben der zu sichernden Parameter in die `site.conf` verlagern.
+Die Vorgaben der zu sichernden Parameter in die `site.conf` verlagern.
