@@ -114,13 +114,14 @@ if [ -z "$STATE" ]; then
   # Daher wird ein Hilfsskript unter "/tmp/cleanup"?! erstellt und separat gestartet.
   cat << EOF > /tmp/cleanup
 #!/bin/sh
-sleep 5
 #cp ${CACHESTOREFILE} ${CACHESTOREFILE_TMP}
 cp -r  /etc/dropbear /tmp
 cp /etc/rc.local /tmp
 cp /etc/config/cleanup-gluon-config /tmp/cleanup-gluon-config
 rm -rf /overlay/upper/*
+sleep 10
 mount -o remount /
+sleep 10
 cp /tmp/cleanup-gluon-config /etc/config/cleanup-gluon-config
 cp /tmp/rc.local /etc/rc.local
 cp /tmp/dropbear/* /etc/dropbear
