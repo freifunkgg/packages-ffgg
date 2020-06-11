@@ -4,9 +4,11 @@ Mit diesem Package werden auf einem Freifunkknoten alte und überflüssige Konfi
 
 Hierdurch ist es bei Bestandsknoten sehr einfach möglich, dass komplizierte Upgrades ohne frisches Aufsetzen der Knoten (z.B. innerhalb einer Community bei einem Technologie-Wechsel - z.B. VPN-Protokolls oder Mesh-Protokoll - oder bei einem Knotenumzug von einer Community zu einer anderen Community) durch ein simples Update durchgeführt werden können.
 
-Ein `'sysupgrade -n'` mit einer gefolgten Neukonfiguration im Konfigmodus ist nicht notwendig.
+Ein `'sysupgrade -n'` mit einer gefolgten Neukonfiguration im Konfigmodus ist **nicht** notwendig.
 
-Der generelle und dauerhafte Einsatz dieses Package in einer Community-Firmware ist nicht angedacht. Eine Firmware mit diesem Packages sollte nur als zeitlich beschränkter Übergang zu einer neuen Firmware-Version dienen. Die Verbreitung einer Factory-Firmware mit diesem Packages ist nicht zu empfehlen. 
+Der generelle und dauerhafte Einsatz dieses Package in einer Community-Firmware ist nicht angedacht. Eine Firmware mit diesem Packages sollte nur als zeitlich beschränkter Übergang zu einer neuen Firmware-Version dienen. 
+
+Der Konfig-Modus wird bei einer Factory-Anwendung nicht aktiviert. Daher ist die Verbreitung einer Factory-Firmware mit diesem Package ist nicht zu empfehlen. 
 
 ---
 
@@ -100,7 +102,9 @@ Der CleanUp-Mechanismus ist danach inaktiv. Weitere Sysupgrades führen nicht me
 ---
 
 ## Einbindung in Gluon
-Wird das Package in der Firmware eingebunden, dann muss dafür gesorgt werden, dass der Konfigmodus übersprungen wird. Das Aufspielen einer Factory-Firmware auf einen neuen Router wird daher zu einem mit Default-Werten konfigurierten Router führen. 
+Wird das Package in der Firmware eingebunden, dann muss dafür gesorgt werden, dass der Konfigmodus übersprungen wird. 
+
+Das Aufspielen einer Factory-Firmware auf einen neuen Router wird daher zu einem mit Default-Werten konfigurierten Router führen. 
 
 Wird dieses Package in der `site.mk` eingebunden, dann muss folgender Eintrag in der `site.conf` vorhanden sein
 
