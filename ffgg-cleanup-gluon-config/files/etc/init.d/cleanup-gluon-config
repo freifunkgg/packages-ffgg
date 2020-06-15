@@ -92,8 +92,16 @@ if [ -z "$STATE" ]; then
   #Wifi
   WipeWriteUci gluon.wireless.outdoor
   WipeWriteUci gluon-core.@wireless[0].preserve_channels
+
+  # Die Wifi-Kanäle nicht merken wenn 'preserve_channels' nicht gesetzt ist.
+  # So werden immer die Kanäle aus der site.conf verwendet. (z:b. Bei Umstellung der Community-Kanäle)
+  if [ $(uci -q gluon-core.@wireless[0].preserve_channels ) = '0' ]; then
+    uci set wireless.radio0.channel=
+    uci set wireless.radio1.channel=
+  fi
   WipeWriteUci wireless.radio0.channel
   WipeWriteUci wireless.radio1.channel
+  
   WipeWriteUci wireless.radio0.disabled
   WipeWriteUci wireless.radio1.disabled
   WipeWriteUci wireless.client_radio0.disabled
