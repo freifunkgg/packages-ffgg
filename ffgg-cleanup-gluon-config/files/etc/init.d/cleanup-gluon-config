@@ -34,6 +34,7 @@ boot() {
 
 STATE=$(uci -q get cleanup-gluon-config.wipe.state)
 
+##########################################################################################
 #
 # Phase I
 #
@@ -41,6 +42,7 @@ STATE=$(uci -q get cleanup-gluon-config.wipe.state)
 # Gefolgt alle wichtigsten UCI-Parameter zwischenspeichern.
 # Dann wird das overlayfs gelöscht und der Zwischenspeicher unter /root/$CACHESTOREFILE abgelegt.
 # Mit einem Reboot wird in Phase II gewechselt.
+##########################################################################################
 
 if [ -z "$STATE" ]; then
   touch /etc/config/cleanup-gluon-config
@@ -108,10 +110,12 @@ if [ -z "$STATE" ]; then
   uci set cleanup-gluon-config.wipe.state=${WIPE_CACHED}
   uci commit cleanup-gluon-config
 
+  ########################################################################################
   # Gefolgt ein kleiner Hack.
   # Beim  Bootprozess bereitet der Zugriff auf "/tmp" Probleme.
   # Es liegt wohl an "/etc/rc.common" und "mount -o remount /"
   # Daher wird ein Hilfsskript unter "/tmp/cleanup"?! erstellt und separat gestartet.
+  ########################################################################################
   cat << EOF > /tmp/cleanup
 #!/bin/sh
 #cp ${CACHESTOREFILE} ${CACHESTOREFILE_TMP}
@@ -131,10 +135,14 @@ EOF
   chmod +x /tmp/cleanup
   /tmp/cleanup &
 
+
+
+##########################################################################################
 #
 # Phase II
 #
 # Wiederherstellung der zwischengespeicherten UCI-Werte aus der Cache-Datei.
+##########################################################################################
 elif [ "$STATE" == "$WIPE_CACHED" ]; then
   uci -f ${CACHESTOREFILE} batch
   #rm -f ${CACHESTOREFILE}
