@@ -114,6 +114,28 @@ if [ -z "$STATE" ]; then
   WipeWriteUci wireless.wan_radio0.key
   WipeWriteUci wireless.wan_radio1.key
 
+  # Private Wifi
+  WipeWriteUci wireless.wan_radio0
+  WipeWriteUci wireless.wan_radio1
+  WipeWriteUci wireless.wan_radio0.device
+  WipeWriteUci wireless.wan_radio1.device
+  WipeWriteUci wireless.wan_radio0.network
+  WipeWriteUci wireless.wan_radio1.network
+  WipeWriteUci wireless.wan_radio1.mode
+  WipeWriteUci wireless.wan_radio0.mode
+  WipeWriteUci wireless.wan_radio0.encryption
+  WipeWriteUci wireless.wan_radio1.encryption
+  WipeWriteUci wireless.wan_radio0.ssid
+  WipeWriteUci wireless.wan_radio1.ssid
+  WipeWriteUci wireless.wan_radio0.key
+  WipeWriteUci wireless.wan_radio1.key
+  WipeWriteUci wireless.wan_radio0.disabled
+  WipeWriteUci wireless.wan_radio1.disabled
+  WipeWriteUci wireless.wan_radio0.macaddr
+  WipeWriteUci wireless.wan_radio1.macaddr
+
+
+
   # Neuen Wipe-State sichern
   uci set cleanup-gluon-config.wipe.state=${WIPE_CACHED}
   uci commit cleanup-gluon-config
