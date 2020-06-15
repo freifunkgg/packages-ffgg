@@ -75,12 +75,12 @@ if [ -z "$STATE" ]; then
   WipeWriteUci gluon-wan-dnsmasq.@static[0].server
 
   #VPN bandwidth limitation
+  WipeWriteUci gluon.mesh_vpn.limit_enabled
   WipeWriteUci gluon.mesh_vpn.limit_egress
   WipeWriteUci gluon.mesh_vpn.limit_ingress
-  WipeWriteUci gluon.mesh_vpn.limit_enabled
 
   #VPN
-  WipeWriteUci fastd.mesh_vpn.enabledd
+  WipeWriteUci fastd.mesh_vpn.enabled gluon.mesh_vpn.enabled
 
   # MoL / MoW
   WipeWriteUci network.mesh_wan.disabled
