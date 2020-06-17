@@ -89,9 +89,6 @@ Der CleanUp-Mechanismus ist danach inaktiv. Weitere Sysupgrades führen nicht me
     - system.gpio_switch_poe_passthrough.value
   - Wifi
     - gluon.wireless.outdoor
-    - gluon-core.@wireless[0].preserve_channels
-    - wireless.radio0.channel
-    - wireless.radio1.channel
     - wireless.radio0.disabled
     - wireless.radio1.disabled
     - wireless.client_radio0.disabled
