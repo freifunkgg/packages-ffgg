@@ -164,6 +164,7 @@ cp /tmp/cleanup-gluon-config /etc/config/cleanup-gluon-config
 cp /tmp/rc.local /etc/rc.local
 cp /tmp/dropbear/* /etc/dropbear
 cp ${CACHESTOREFILE_TMP} ${CACHESTOREFILE}
+sleep 10
 reboot
 EOF
   chmod +x /tmp/cleanup
